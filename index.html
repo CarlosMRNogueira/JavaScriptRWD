@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 4</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffe4e1;
+            color: #8b5c5c;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #ff6f61;
+        }
+        h2 {
+            margin-top: 20px;
+            border-bottom: 2px solid #ff6f61;
+        }
+        button {
+            background-color: #ff6f61;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #e65c50;
+        }
+        input {
+            padding: 5px;
+            margin-right: 10px;
+            border: 1px solid #c0c0c0;
+            border-radius: 5px;
+        }
+        .resultado {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #ffe4e1;
+            border: 1px solid #ff6f61;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Atividade 4</h1>
+    
+    <h2>Olá Mundo</h2>
+    <button onclick="mostrarOlaMundo()">Clique para dizer Olá Mundo!</button>
+    <div id="mensagem-ola" class="resultado"></div>
+    
+    <h2>Soma de 2 inteiros</h2>
+    <input type="number" id="numero1" placeholder="Primeiro inteiro">
+    <input type="number" id="numero2" placeholder="Segundo inteiro">
+    <button onclick="calcularSoma()">Somar</button>
+    <div id="resultado-soma" class="resultado"></div>
+    
+    <h2>Alterar propriedade de elemento por ID</h2>
+    <button onclick="alterarPorId()">Alterar ID</button>
+    <br> <br>
+    <div id="elemento-id">Texto original ID</div>
+    
+    <h2>Alterar propriedade de elemento por nome</h2>
+    <button onclick="alterarPorNome()">Alterar Nome</button>
+    <input type="text" name="elemento-nome" value="Texto original Nome">
+    
+    <h2>Alterar propriedade de elemento por class</h2>
+    <button onclick="alterarPorClasse()">Alterar class</button>
+    <br> <br>
+    <div class="elemento-classe">Texto original class</div>
+
+    <script>
+        function mostrarOlaMundo() {
+            document.getElementById("mensagem-ola").innerText = "Olá Mundo!";
+        }
+
+        function calcularSoma() {
+            const num1 = parseInt(document.getElementById("numero1").value) || 0;
+            const num2 = parseInt(document.getElementById("numero2").value) || 0;
+            const soma = num1 + num2;
+            document.getElementById("resultado-soma").innerText = "Resultado da soma: " + soma;
+        }
+
+        function alterarPorId() {
+            document.getElementById("elemento-id").innerText = "Texto alterado por ID";
+        }
+
+        function alterarPorNome() {
+            const elemento = document.getElementsByName("elemento-nome")[0];
+            elemento.value = "Texto alterado por Nome";
+        }
+
+        function alterarPorClasse() {
+            const elementos = document.getElementsByClassName("elemento-classe");
+            for (let i = 0; i < elementos.length; i++) {
+                elementos[i].innerText = "Texto alterado por classe";
+                elementos[i].style.color = "#ff6f61";
+            }
+        }
+    </script>
+
+</body>
+</html>
